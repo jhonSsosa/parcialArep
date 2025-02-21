@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Calculadora</h1>
+<form action="#" onsubmit="calcular(); return false;">
+    <br>Escriba la operacion:<br>
+    <input type="text" id="operacion" name="operacion">
+    <br>Escriba los numeros (separados por coma):<br>
+    <input type="text" id="numeros" name="numeros"><br><br>
+    <input type="submit" value="Calcular">
+</form>
+
+<div id="getrespmsg"></div>
+
+<script>
+    function calcular() {
+        let operacion = document.getElementById("operacion").value;
+        let numeros = document.getElementById("numeros").value;
+        const url = `/computar?comando=${operacion}&numeros=${numeros}`;
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("getrespmsg").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
+</script>
+</body>
+</html>
