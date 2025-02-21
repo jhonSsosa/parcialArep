@@ -45,7 +45,25 @@ Para ejecutar la instalacion se debe de clonar el repositorio con el link https:
 
 Ejecucion
 
-El servidor de la calculadora escucha en el puerto 36000. Para iniciar el servidor, ejecuta el siguiente comando:
+- El servidor de la calculadora escucha en el puerto 36000. Para iniciar el servidor, ejecuta el siguiente comando:
 
-java org.example.CalculadoraHttpServer
+java -cp target/classes org.example.CalculadoraHttpServer
+
+Con este en ejecucion escribimos en el navegador el siguiente link para procesar la solicitud:
+
+http://localhost:36000/compreflex?comando=(operacion)&numeros=(numeros)
+
+En los cuales escribiremos en la operacion el tipo de operacion que en la libreria Math se quiere ejecutar, y en numeros el o los numeros separados en "," que se quieren operar para la operacion.
+
+- Para el servidor de la fachada que escucha en el puerto 350000, se debe ejecutar el siguiente comando:
+
+java -cp target/classes org.example.CalculadoraHttpServer
+
+Con este en ejecucion escribimos en el navegador el siguiente link para procesar la solicitud:
+
+http://localhost:35000/
+
+Esto nos redirigira a un html en el cual se podra ingresar tanto el comando de la libreria math como el o los numeros separados en ",", para asi poder generar la respuesta a la misma solicitud.
+
+
 
